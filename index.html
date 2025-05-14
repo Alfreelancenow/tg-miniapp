@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 40px;
+        background: #f9f9f9;
+      }
+      h2 {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Привет, <span id="user"></span>!</h2>
+    <p>Это простое мини-приложение в Telegram.</p>
+
+    <script>
+      const tg = window.Telegram.WebApp;
+      const user = tg.initDataUnsafe?.user;
+      document.getElementById('user').textContent = user?.first_name || 'Гость';
+      tg.expand();
+    </script>
+  </body>
+</html>
